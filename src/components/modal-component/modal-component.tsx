@@ -1,11 +1,11 @@
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
-  tag: 'modelo-teste',
-  styleUrl: 'modelo-teste.css',
+  tag: 'modal-component',
+  styleUrl: 'modal-component.css',
   shadow: true,
 })
-export class ModeloTeste {
+export class ModalComponent {
   render() {
     return (
       <Host>

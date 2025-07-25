@@ -6,69 +6,121 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface ModeloTeste {
+    interface ButtonComponent {
+        "classes": string;
+        "color": string;
+        "component": string;
+        "disableElevation": boolean;
+        /**
+          * @default false
+         */
+        "disableFocusRipple": boolean;
+        /**
+          * @default false
+         */
+        "disableRipple": boolean;
+        "disabled": string;
+        "endIcon": Node;
+        /**
+          * @default false
+         */
+        "fullWidth": boolean;
+        "href": string;
+        /**
+          * @default false
+         */
+        "loading": boolean;
+        "loadingIndicator": Node;
+        /**
+          * @default 'center'
+         */
+        "loadingPosition": 'center' | 'end' | 'start';
+        /**
+          * @default 'medium'
+         */
+        "size": 'small' | 'medium' | 'large';
+        "startIcon": Node;
+        "sx": object;
+        /**
+          * @default 'text'
+         */
+        "variant": 'contained' | 'outlined' | 'text';
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface ModalComponent {
     }
 }
 declare global {
-    interface HTMLModeloTesteElement extends Components.ModeloTeste, HTMLStencilElement {
+    interface HTMLButtonComponentElement extends Components.ButtonComponent, HTMLStencilElement {
     }
-    var HTMLModeloTesteElement: {
-        prototype: HTMLModeloTesteElement;
-        new (): HTMLModeloTesteElement;
+    var HTMLButtonComponentElement: {
+        prototype: HTMLButtonComponentElement;
+        new (): HTMLButtonComponentElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLModalComponentElement extends Components.ModalComponent, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLModalComponentElement: {
+        prototype: HTMLModalComponentElement;
+        new (): HTMLModalComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "modelo-teste": HTMLModeloTesteElement;
-        "my-component": HTMLMyComponentElement;
+        "button-component": HTMLButtonComponentElement;
+        "modal-component": HTMLModalComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface ModeloTeste {
+    interface ButtonComponent {
+        "classes"?: string;
+        "color"?: string;
+        "component"?: string;
+        "disableElevation"?: boolean;
+        /**
+          * @default false
+         */
+        "disableFocusRipple"?: boolean;
+        /**
+          * @default false
+         */
+        "disableRipple"?: boolean;
+        "disabled"?: string;
+        "endIcon"?: Node;
+        /**
+          * @default false
+         */
+        "fullWidth"?: boolean;
+        "href"?: string;
+        /**
+          * @default false
+         */
+        "loading"?: boolean;
+        "loadingIndicator"?: Node;
+        /**
+          * @default 'center'
+         */
+        "loadingPosition"?: 'center' | 'end' | 'start';
+        /**
+          * @default 'medium'
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        "startIcon"?: Node;
+        "sx"?: object;
+        /**
+          * @default 'text'
+         */
+        "variant"?: 'contained' | 'outlined' | 'text';
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface ModalComponent {
     }
     interface IntrinsicElements {
-        "modelo-teste": ModeloTeste;
-        "my-component": MyComponent;
+        "button-component": ButtonComponent;
+        "modal-component": ModalComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "modelo-teste": LocalJSX.ModeloTeste & JSXBase.HTMLAttributes<HTMLModeloTesteElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "button-component": LocalJSX.ButtonComponent & JSXBase.HTMLAttributes<HTMLButtonComponentElement>;
+            "modal-component": LocalJSX.ModalComponent & JSXBase.HTMLAttributes<HTMLModalComponentElement>;
         }
     }
 }
