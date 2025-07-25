@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface ButtonComponent {
         "classes": string;
-        "color": string;
         "component": string;
         "disableElevation": boolean;
         /**
@@ -19,7 +18,7 @@ export namespace Components {
           * @default false
          */
         "disableRipple": boolean;
-        "disabled": string;
+        "disabled": boolean;
         "endIcon": Node;
         /**
           * @default false
@@ -47,7 +46,12 @@ export namespace Components {
         "variant": 'contained' | 'outlined' | 'text';
     }
     interface ModalComponent {
+        "open": boolean;
     }
+}
+export interface ModalComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLModalComponentElement;
 }
 declare global {
     interface HTMLButtonComponentElement extends Components.ButtonComponent, HTMLStencilElement {
@@ -56,7 +60,18 @@ declare global {
         prototype: HTMLButtonComponentElement;
         new (): HTMLButtonComponentElement;
     };
+    interface HTMLModalComponentElementEventMap {
+        "handleClose": void;
+    }
     interface HTMLModalComponentElement extends Components.ModalComponent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLModalComponentElementEventMap>(type: K, listener: (this: HTMLModalComponentElement, ev: ModalComponentCustomEvent<HTMLModalComponentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLModalComponentElementEventMap>(type: K, listener: (this: HTMLModalComponentElement, ev: ModalComponentCustomEvent<HTMLModalComponentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLModalComponentElement: {
         prototype: HTMLModalComponentElement;
@@ -70,7 +85,6 @@ declare global {
 declare namespace LocalJSX {
     interface ButtonComponent {
         "classes"?: string;
-        "color"?: string;
         "component"?: string;
         "disableElevation"?: boolean;
         /**
@@ -81,7 +95,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "disableRipple"?: boolean;
-        "disabled"?: string;
+        "disabled"?: boolean;
         "endIcon"?: Node;
         /**
           * @default false
@@ -109,6 +123,8 @@ declare namespace LocalJSX {
         "variant"?: 'contained' | 'outlined' | 'text';
     }
     interface ModalComponent {
+        "onHandleClose"?: (event: ModalComponentCustomEvent<void>) => void;
+        "open"?: boolean;
     }
     interface IntrinsicElements {
         "button-component": ButtonComponent;

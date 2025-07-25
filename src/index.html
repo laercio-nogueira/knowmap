@@ -11,10 +11,24 @@
 </head>
 
 <body>
-  <button-component>
-    Don't call me a framework
+  <button-component onClick="clickModal()" size="medium" variant="contained">
+    Abrir Modal
   </button-component>
-  <!-- <modal-component></modal-component> -->
+  <button class="contained-button-class">teste</button>
+  <modal-component open="false" handleClose="clickClose()" />
+
+  <script>
+    const modalComponent = document.querySelector('modal-component');
+
+    const clickModal = () => {
+      modalComponent.setAttribute('open', true)
+    }
+
+    const clickClose = () => {
+      console.log("teste")
+      modalComponent.setAttribute('open', false)
+    }
+  </script>
 </body>
 
 </html>

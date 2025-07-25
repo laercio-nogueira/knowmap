@@ -3,14 +3,14 @@ import { Component, Prop, h, Element, Listen } from '@stencil/core';
 @Component({
   tag: 'button-component',
   styleUrl: 'button-component.scss',
-  // scoped: true,
   shadow: true,
 })
 export class ButtonComponent {
+  @Element() host: HTMLElement;
+
   @Prop() classes: string;
-  @Prop() color: string;
   @Prop() component: string;
-  @Prop() disabled: string;
+  @Prop() disabled: boolean;
   @Prop() disableElevation: boolean;
   @Prop() disableFocusRipple: boolean = false;
   @Prop() disableRipple: boolean = false;
@@ -24,8 +24,6 @@ export class ButtonComponent {
   @Prop() startIcon: Node;
   @Prop() sx: object;
   @Prop() variant: 'contained' | 'outlined' | 'text' = 'text';
-
-  @Element() host: HTMLElement;
 
   @Listen('click', { capture: true })
   handleClick(event: MouseEvent) {
@@ -49,9 +47,36 @@ export class ButtonComponent {
     });
   }
 
+  sizeButton = () =>
+    ({
+      medium: 'medium-button-class',
+      large: 'large-button-class',
+      small: 'small-button-class',
+    }[this.size] ?? 'medium-button-class');
+
+  variantButton = () =>
+    ({
+      outlined: 'outlined-button-class',
+      contained: 'contained-button-class',
+      text: 'text-button-class',
+    }[this.variant] ?? 'contained-button-class');
+
   render() {
+    const props = {};
+    Array.from(this.host.attributes).forEach(attr => {
+      props[attr.name] = attr.value;
+    });
+
     return (
-      <button>
+      <button
+        disabled={this.disabled}
+        class={`
+          ${this.sizeButton()}
+          ${this.variantButton()}
+          ${this.classes}
+        `}
+        {...props}
+      >
         <slot />
       </button>
     );

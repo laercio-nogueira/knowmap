@@ -1,3 +1,57 @@
 :host {
   display: block;
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  max-width: 90vw;
+  max-height: 90vh;
+  min-width: 320px;
+  min-height: 120px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  position: relative;
+  overflow: auto;
+  animation: modal-fade-in 0.2s;
+}
+
+@keyframes modal-fade-in {
+  from { transform: translateY(40px) scale(0.98); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 1;
+}
+
+.modal-close:hover {
+  color: #222;
+}
+
+.modal-content {
+  margin-top: 0.5rem;
+  /* Custom content styles can go here */
+}

@@ -1,95 +1,15 @@
-// :host {
-//   button {
-//     --variant-textColor: var(--mui-palette-primary-main, #1976d2);
-//     --variant-outlinedColor: var(--mui-palette-primary-main, #1976d2);
-//     --variant-outlinedBorder: rgba(var(--mui-palette-primary-mainChannel, 25 118 210) / 0.5);
-//     --variant-containedColor: var(--mui-palette-primary-contrastText, #fff);
-//     --variant-containedBg: var(--mui-palette-primary-main, #1976d2);
-//     display: inline-flex;
-//     -webkit-box-align: center;
-//     align-items: center;
-//     -webkit-box-pack: center;
-//     justify-content: center;
-//     position: relative;
-//     box-sizing: border-box;
-//     -webkit-tap-highlight-color: transparent;
-//     cursor: pointer;
-//     user-select: none;
-//     vertical-align: middle;
-//     appearance: none;
-//     font-family: Roboto, Helvetica, Arial, sans-serif;
-//     font-weight: 500;
-//     font-size: 0.875rem;
-//     line-height: 1.75;
-//     letter-spacing: 0.02857em;
-//     text-transform: uppercase;
-//     min-width: 64px;
-//     color: var(--variant-containedColor);
-//     background-color: var(--variant-containedBg);
-//     box-shadow: var(--mui-shadows-2, 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12));
-//     outline: 0px;
-//     margin: 0px;
-//     text-decoration: none;
-//     padding: 6px 16px;
-//     border-width: 0px;
-//     border-style: initial;
-//     border-color: initial;
-//     border-image: initial;
-//     border-radius: var(--mui-shape-borderRadius, 4px);
-//     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-//     &:hover {
-//       box-shadow: var(--mui-shadows-4, 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12));
-//       --variant-containedBg: var(--mui-palette-primary-dark, #1565c0);
-//       --variant-textBg: rgba(var(--mui-palette-primary-mainChannel, 25 118 210) / var(--mui-palette-action-hoverOpacity, 0.04));
-//       --variant-outlinedBorder: var(--mui-palette-primary-main, #1976d2);
-//       --variant-outlinedBg: rgba(var(--mui-palette-primary-mainChannel, 25 118 210) / var(--mui-palette-action-hoverOpacity, 0.04));
-//     }
-
-//     // &:active {
-//     //   background-color: rgb(122, 192, 248);
-//     //   box-shadow: rgba(0, 0, 0, 0.2) 0px 2.72197px 1.83408px -1.72197px, rgba(0, 0, 0, 0.14) 0px 2.55605px 2.83408px 0px, rgba(0, 0, 0, 0.12) 0px 1px 6.39013px 0px;
-//     // }
-
-//     &:focus-visible {
-//       outline: rgb(251, 192, 45) solid 0.125rem;
-//       outline-offset: 0.125px;
-//       border-radius: 5px;
-//     }
-
-//     position: relative;
-//     overflow: hidden;
-//     padding: 12px 24px;
-//     font-size: 16px;
-//     background-color: #1976d2;
-//     color: white;
-//     border: none;
-//     border-radius: 4px;
-//     cursor: pointer;
-//   }
-
-//   .ripple {
-//     position: absolute;
-//     border-radius: 50%;
-//     transform: scale(0);
-//     animation: ripple-animation 600ms linear;
-//     background-color: rgba(255, 255, 255, 0.6);
-//     pointer-events: none;
-//   }
-
-//   @keyframes ripple-animation {
-//     to {
-//       transform: scale(4);
-//       opacity: 0;
-//     }
-//   }
-// }
-button {
+:host {
   --variant-textColor: var(--mui-palette-primary-main, #1976d2);
   --variant-outlinedColor: var(--mui-palette-primary-main, #1976d2);
   --variant-outlinedBorder: rgba(var(--mui-palette-primary-mainChannel, 25 118 210) / 0.5);
   --variant-containedColor: var(--mui-palette-primary-contrastText, #fff);
   --variant-containedBg: var(--mui-palette-primary-main, #1976d2);
+  --variant-textBg: rgba(var(--mui-palette-primary-mainChannel, 25 118 210) / var(--mui-palette-action-hoverOpacity, 0.04));
+  --variant-outlinedBorder: var(--mui-palette-primary-main, #1976d2);
+  --variant-outlinedBg: rgba(var(--mui-palette-primary-mainChannel, 25 118 210) / var(--mui-palette-action-hoverOpacity, 0.04));
+}
+
+button {
   display: inline-flex;
   -webkit-box-align: center;
   align-items: center;
@@ -109,9 +29,6 @@ button {
   letter-spacing: 0.02857em;
   text-transform: uppercase;
   min-width: 64px;
-  color: var(--variant-containedColor);
-  background-color: var(--variant-containedBg);
-  box-shadow: var(--mui-shadows-2, 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12));
   outline: 0px;
   margin: 0px;
   text-decoration: none;
@@ -122,14 +39,6 @@ button {
   border-image: initial;
   border-radius: var(--mui-shape-borderRadius, 4px);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    box-shadow: var(--mui-shadows-4, 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12));
-    --variant-containedBg: var(--mui-palette-primary-dark, #1565c0);
-    --variant-textBg: rgba(var(--mui-palette-primary-mainChannel, 25 118 210) / var(--mui-palette-action-hoverOpacity, 0.04));
-    --variant-outlinedBorder: var(--mui-palette-primary-main, #1976d2);
-    --variant-outlinedBg: rgba(var(--mui-palette-primary-mainChannel, 25 118 210) / var(--mui-palette-action-hoverOpacity, 0.04));
-  }
 
   &:focus-visible {
     outline: rgb(251, 192, 45) solid 0.125rem;
@@ -152,4 +61,37 @@ button {
     transform: scale(4);
     opacity: 0;
   }
+}
+
+.small-button-class {
+  padding: 2px 5px
+}
+
+.medium-button-class {
+  padding: 5px 10px
+}
+
+.large-button-class {
+  padding: 10px
+}
+
+.outlined-button-class {
+  border: 1px solid var(--mui-palette-primary-main, #1976d2);
+  color: var(--mui-palette-primary-main, #1976d2);
+}
+
+.contained-button-class {
+  color: var(--variant-containedColor);
+  background-color: var(--variant-containedBg);
+  box-shadow: var(--mui-shadows-2, 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12));
+
+  &:hover {
+    box-shadow: var(--mui-shadows-4, 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12));
+  }
+}
+
+.text-button-class {
+  background: none;
+  border: none;
+  color: var(--variant-textColor);
 }
