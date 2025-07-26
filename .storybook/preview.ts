@@ -1,7 +1,4 @@
 import type { Preview } from '@storybook/web-components-vite';
-import { defineCustomElements } from '../loader';
-
-defineCustomElements();
 
 const preview: Preview = {
   parameters: {
