@@ -4,7 +4,7 @@ const config: StorybookConfig = {
   stories: ['../**/*.mdx', '../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: ['@chromatic-com/storybook', '@storybook/addon-docs', '@storybook/addon-a11y', '@storybook/addon-vitest'],
   framework: {
-    name: '@stencil/storybook-plugin',
+    name: '@storybook/web-components-vite',
     options: {},
   },
 };
